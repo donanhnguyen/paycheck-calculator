@@ -6,9 +6,9 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
-import HomePage from "./homePage";
+import Calculator from './calculator';
 
-class App extends React.Component {
+class HomePage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -16,12 +16,13 @@ class App extends React.Component {
 
     render () {
         return (
-            <div>
-                <Route exact path='/' component={HomePage}/>
+            <div class=''>
+                <h1>Take-home Paycheck Calculator 2018</h1>
+                <Calculator />
             </div>
         )
     }
 
 }
 
-export default App;
+export default HomePage;
