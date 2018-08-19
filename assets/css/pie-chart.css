@@ -1,0 +1,109 @@
+.pie-slice {
+    opacity: 0.8;
+}
+.pie-slice:hover {
+    opacity: 1;
+    cursor: pointer;
+    border: 1px solid black;
+}
+.pie-chart-container h1 {
+  font-size: 20px;
+}
+
+/* spinner */
+.pie-chart-spinner {
+    margin: 170px auto;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  .pie-chart-spinner > div {
+    background-color: rgba(117, 111, 244, 0.673);
+    height: 100%;
+    width: 50px;
+    border-radius: 3px;
+    display: inline-block;
+    
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  }
+  
+  .pie-chart-spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+  }
+  
+  .pie-chart-spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+  
+  .pie-chart-spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+  }
+  
+  .pie-chart-spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+  }
+  
+  @-webkit-keyframes sk-stretchdelay {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+    20% { -webkit-transform: scaleY(1.0) }
+  }
+  
+  @keyframes sk-stretchdelay {
+    0%, 40%, 100% { 
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
+    }  20% { 
+      transform: scaleY(1.0);
+      -webkit-transform: scaleY(1.0);
+    }
+  }
+
+.legend {
+    font-size: 20px;
+  }
+  rect {
+    cursor: pointer; 
+    stroke-width: 1;
+    border-radius: 50px;
+  }
+  rect.disabled {
+    fill: transparent !important;
+  }
+  
+  #pie-chart {
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    width: 1200px;
+  }
+
+  #chart {
+    height: 800px;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    width: 1200px;
+  }
+  
+  .tooltip {
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 5px #323232;
+    color: rgb(0, 10, 101);
+    display: none;
+    font-size: 20px;
+    left: 130px;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    top: 95px;
+    min-width: 80px;
+    z-index: 10;
+  }

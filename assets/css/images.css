@@ -1,0 +1,26 @@
+.Austin {
+    background: url('../images/Austin.jpg');
+}
+.Charlotte {
+    background: url('../images/Charlotte.jpg');
+}
+.Denver {
+    background: url('../images/Denver.jpg');
+}
+.SanFrancisco {
+    background: url('../images/SanFrancisco.jpg');
+}
+.Seattle {
+    background: url('../images/Seattle.jpg');
+}
+.city-pic {
+    background-size: 100% 100%;
+    width: 150px;
+    height: 150px;
+    border-radius: 30px;
+    opacity: 0.8
+}
+.city-pic:hover {
+    opacity: 1;
+    box-shadow: 5px 5px 10px 5px gray;
+}
