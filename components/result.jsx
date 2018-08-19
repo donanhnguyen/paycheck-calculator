@@ -7,6 +7,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import createPieChart from '../js/createPieChart';
 
 class Result extends React.Component {
 
@@ -20,10 +21,14 @@ class Result extends React.Component {
     componentDidMount () {
         setTimeout(function () {
             this.setState({resultReady: true});
-        }.bind(this), 2000);
+            createPieChart(this.props.takeHomePay);
+        }.bind(this), 0);
     }
 
     render () {
+
+        var takeHomePay = this.props.takeHomePay[0].amount;
+        console.log(this.props.takeHomePay);
         if (!this.state.resultReady) {
             return (
                 <div class="pie-chart-spinner">
@@ -37,11 +42,13 @@ class Result extends React.Component {
         } else {
             return (
                 <div class='calculator'>
+                    <h1>Your gross pay is : {this.props.grossPay}</h1>
 
-                    <h1>Your take home pay is :</h1>
+                    <h1>Your take home pay is : {takeHomePay}</h1>
 
-                    <h1>{this.props.takeHomePay}</h1>
+                    <div id='pie-chart'>
 
+                    </div>
                 </div>
             ) 
         }

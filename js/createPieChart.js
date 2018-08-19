@@ -24,7 +24,7 @@ var arc = d3.arc()
   .outerRadius(radius); 
 
 var pie = d3.pie() 
-  .value(function(d) { return d.percentage; }) 
+  .value(function(d) { return d.amount; }) 
   .sort(null); 
 
 
@@ -42,7 +42,7 @@ tooltip.append('div')
   .attr('class', 'percent');
 
 dataset.forEach(function(d) {
-  d.percentage = +d.percentage; 
+  d.amount = +d.amount; 
   d.enabled = true; 
 });
 
@@ -86,10 +86,12 @@ var path = svg.selectAll('path')
 path.on('mouseover', function(d) {      
  var total = d3.sum(dataset.map(function(d) {  
   return (d.enabled) ? d.percentage : 0;                                      
-  }));                                                      
- var percent = Math.round(1000 * d.data.percentage / total) / 10;
- tooltip.select('.label').html(d.data.race);                     
- tooltip.select('.percent').html(percent + '%');       
+  }));                              
+  console.log(total);                        
+ var percentage = Math.round(1000 * d.data.percentage / total) / 10;
+ tooltip.select('.label').html(d.data.type);                     
+ tooltip.select('.percent').html(percentage + "%");
+ tooltip.select('.count').html('$' + d.data.amount);        
  tooltip.style('display', 'block');                     
 });                                                           
 
@@ -122,7 +124,7 @@ legend.append('rect')
   .attr('height', legendRectSize)                    
   .style('fill', function(d, i) { return color1[i]; }) 
   .style('stroke', function(d, i) { return color1[i]; }) 
-  .on('click', function(race) {
+  .on('click', function(type) {
     var rect = d3.select(this); 
     var enabled = true; 
     var totalEnabled = d3.sum(dataset.map(function(d) { 
@@ -138,8 +140,8 @@ legend.append('rect')
     }
 
     pie.value(function(d) { 
-      if (d.race === race.data.race) d.enabled = enabled; 
-        return (d.enabled) ? d.percentage : 0; 
+      if (d.type === type.data.type) d.enabled = enabled; 
+        return (d.enabled) ? d.amount : 0; 
     });
 
     path = path.data(pie(dataset)); 
@@ -160,7 +162,7 @@ legend.append('text')
   .attr('x', legendRectSize + legendSpacing)
   .attr('y', legendRectSize - legendSpacing) 
   .attr('style', 'font-size: 18px')
-  .text(function(d) { return d.data.race; }); 
+  .text(function(d) { return d.data.type; }); 
 }
 
 export default createPieChart;

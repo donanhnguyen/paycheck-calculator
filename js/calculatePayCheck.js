@@ -23,7 +23,16 @@ const calculatePayCheck = (payAmount) => {
 
     var difference = payAmount * percentage;
     var takeHome = (payAmount - difference) - (payAmount * fica);
-    return takeHome;
+
+    var takeHomePercentage = (takeHome / payAmount) * 100;
+
+    var array = [
+        {type: 'Take-Home', amount: parseInt(takeHome.toFixed(0)), percentage: takeHomePercentage},
+        {type: 'Taxes', amount: Math.round(difference), percentage: percentage * 100},
+        {type: 'FICA', amount: Math.round(payAmount * fica), percentage: fica * 100}
+    ]
+
+    return array;
 
 };
 

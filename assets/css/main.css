@@ -32,14 +32,11 @@ a:hover, a:active { text-decoration: none;}
     margin-top: 75px;
 }
 .calculator {
-    width: 770px;
     margin: auto;
-    margin-top: 50px;
-    padding: 150px;
     box-shadow: 1px 1px 1px 1px rgba(186, 186, 186, 0.803);
     border-radius: 10px;
     min-height: 200px;
-    background-color: rgba(128, 128, 128, 0.762);
+    background-color: rgba(0, 0, 0, 0.762);
 }
 .city-link {
     padding: 2px;

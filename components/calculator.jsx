@@ -49,7 +49,7 @@ class Calculator extends React.Component {
                 </div>
             )
         } else {
-            return <Result takeHomePay={this.state.takeHomePay}/>
+            return <Result takeHomePay={this.state.takeHomePay} grossPay={this.state.pay}/>
         }
         
     }
