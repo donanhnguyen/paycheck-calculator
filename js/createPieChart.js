@@ -82,7 +82,6 @@ var path = svg.selectAll('path')
     // .attr("style", "font-size: 15px; fill: white")
 //text
 
-
 path.on('mouseover', function(d) {      
  var total = d3.sum(dataset.map(function(d) {  
   return (d.enabled) ? d.percentage : 0;                                      
@@ -161,7 +160,7 @@ legend.append('rect')
 legend.append('text')                                    
   .attr('x', legendRectSize + legendSpacing)
   .attr('y', legendRectSize - legendSpacing) 
-  .attr('style', 'font-size: 18px')
+  .attr('style', 'font-size: 18px; fill: white')
   .text(function(d) { return d.data.type; }); 
 }
 

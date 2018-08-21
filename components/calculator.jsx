@@ -39,7 +39,7 @@ class Calculator extends React.Component {
     render () {
         if (!this.state.resultReady) {
             return (
-                <div class='calculator'>
+                <div>
                     <form>
                         <label for='pay'>Salary:</label><br/><br/>
                         <input id='pay' onChange={this.update('pay')} type='number' />

@@ -28,7 +28,9 @@ class Result extends React.Component {
     render () {
 
         var takeHomePay = this.props.takeHomePay[0].amount;
-        console.log(this.props.takeHomePay);
+        var taxes = this.props.takeHomePay[1].amount;
+        var fica = this.props.takeHomePay[2].amount;
+
         if (!this.state.resultReady) {
             return (
                 <div class="pie-chart-spinner">
@@ -43,9 +45,17 @@ class Result extends React.Component {
             return (
                 <div class='calculator'>
                     <h1>Your gross pay is : {this.props.grossPay}</h1>
-
                     <h1>Your take home pay is : {takeHomePay}</h1>
 
+                    <div class='breakdown'>
+                        <h1>Take Home Pay:</h1>
+                        <p>{takeHomePay}</p>
+                        <h1>Taxes:</h1>
+                        <p>{taxes}</p>
+                        <h1>FICA:</h1>
+                        <p>{fica}</p>
+                    </div>
+                    
                     <div id='pie-chart'>
 
                     </div>
