@@ -46,7 +46,7 @@ class Calculator extends React.Component {
     }
 
     render () {
-        console.log(this.state.takeHomePay);
+        console.log(this.state.pay);
         console.log(this.state.salaryType);
         if (!this.state.resultReady) {
             return (
@@ -56,6 +56,7 @@ class Calculator extends React.Component {
                         <input type="radio" name="salary" value="annually"/>Annually
                         <input type="radio" name="salary" value="hourly"/>Hourly
                         
+                        <br/>
                         <label for='pay'>Salary:</label><br/><br/>
                         <input id='pay' onChange={this.update('pay')} type='number' />
 
