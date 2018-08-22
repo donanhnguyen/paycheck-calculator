@@ -46,8 +46,7 @@ class Calculator extends React.Component {
     }
 
     render () {
-        console.log(this.state.pay);
-        console.log(this.state.salaryType);
+
         if (!this.state.resultReady) {
             return (
                 <div>

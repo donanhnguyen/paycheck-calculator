@@ -1,4 +1,4 @@
-const calculatePayCheck = (payAmount) => {
+const calculatePayCheck = (payAmount, frequency) => {
 
     var percentage = 0;
     var fica = 0.0765;
@@ -28,6 +28,18 @@ const calculatePayCheck = (payAmount) => {
         {type: 'Taxes', amount: Math.round(difference), percentage: percentage * 100},
         {type: 'FICA', amount: Math.round(payAmount * fica), percentage: fica * 100}
     ]
+
+    for (let i = 0; i<array.length; i++) {
+        var type = array[i];
+        if (frequency === 'daily') {
+            type.amount = (type.amount / 52) / 40;
+        } else if (frequency === 'bi-weekly') {
+            type.amount = type.amount / 26
+        }
+        else if (frequency === 'weekly') {
+            type.amount = type.amount / 52
+        }
+    }
 
     return array;
 

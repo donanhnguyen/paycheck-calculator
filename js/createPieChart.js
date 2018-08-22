@@ -12,6 +12,11 @@ var legendSpacing = 12;
 
 var color1 = d3.schemeCategory10;
 
+var pieChart = document.getElementById("#pie-chart");
+if (pieChart) {
+  pieChart.innerHTML = "";
+}
+
 var svg = d3.select('#pie-chart') 
   .append('svg') 
   .attr('width', width) 

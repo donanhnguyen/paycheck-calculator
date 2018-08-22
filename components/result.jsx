@@ -15,14 +15,23 @@ class Result extends React.Component {
         super(props);
         this.state = {
             resultReady: false,
+            frequency: 'annually',
         }
     }
 
     componentDidMount () {
         setTimeout(function () {
             this.setState({resultReady: true});
-            createPieChart(this.props.takeHomePay);
+            createPieChart(this.props.takeHomePay, this.state.frequency);
         }.bind(this), 0);
+    }
+
+    changeFrequency () {
+        return (event) => {
+            this.setState({
+                frequency: event.currentTarget.value,
+            });
+        }
     }
 
     render () {
@@ -46,6 +55,15 @@ class Result extends React.Component {
                 <div class='calculator'>
                     <h1>Your gross pay is : {this.props.grossPay}</h1>
                     <h1>Your take home pay is : {takeHomePay}</h1>
+
+                    <div class='pay-options-container'>
+                       <select class='pay-options' onChange={this.changeFrequency()}>
+                            <option value="annually">Annually</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="bi-weekly">Bi-Weekly</option>
+                        </select> 
+                    </div>
 
                     <div class='breakdown'>
                         <h1>Take Home Pay:</h1>

@@ -71,7 +71,12 @@ a:hover, a:active { text-decoration: none;}
     position: absolute;
     right: 0px;
 }
-
+.pay-options {
+    font-size: 25px;
+}
+.pay-options-container {
+    
+}
 svg {
     margin-left: auto;
     margin-right: auto;
