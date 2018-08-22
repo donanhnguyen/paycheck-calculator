@@ -86,7 +86,7 @@ path.on('mouseover', function(d) {
  var total = d3.sum(dataset.map(function(d) {  
   return (d.enabled) ? d.percentage : 0;                                      
   }));                              
-  console.log(total);                        
+                       
  var percentage = Math.round(1000 * d.data.percentage / total) / 10;
  tooltip.select('.label').html(d.data.type);                     
  tooltip.select('.percent').html(percentage + "%");

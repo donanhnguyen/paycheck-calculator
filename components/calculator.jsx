@@ -18,6 +18,7 @@ class Calculator extends React.Component {
             pay: 0,
             resultReady: false,
             takeHomePay: 0,
+            salaryType: null,
         }
     }
 
@@ -36,11 +37,25 @@ class Calculator extends React.Component {
         })
     }
 
+    changeSalaryType(type) {
+        if (type === 'hourly') {
+            this.setState({salaryType: 'hourly'});
+        } else {
+            this.setState({salaryType: 'annually'})
+        }
+    }
+
     render () {
+        console.log(this.state.takeHomePay);
+        console.log(this.state.salaryType);
         if (!this.state.resultReady) {
             return (
                 <div>
                     <form>
+
+                        <input type="radio" name="salary" value="annually"/>Annually
+                        <input type="radio" name="salary" value="hourly"/>Hourly
+                        
                         <label for='pay'>Salary:</label><br/><br/>
                         <input id='pay' onChange={this.update('pay')} type='number' />
 
