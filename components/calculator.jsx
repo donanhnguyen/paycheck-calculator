@@ -19,6 +19,7 @@ class Calculator extends React.Component {
             resultReady: false,
             takeHomePay: 0,
             salaryType: null,
+            frequency: 'annually',
         }
     }
 
@@ -32,7 +33,7 @@ class Calculator extends React.Component {
 
     calculatePay () {
         this.setState({
-            takeHomePay: calculatePayCheck(this.state.pay),
+            takeHomePay: calculatePayCheck(this.state.pay, this.state.frequency),
             resultReady: true
         })
     }
@@ -45,18 +46,26 @@ class Calculator extends React.Component {
         }
     }
 
+    changeFrequency () {
+        return (event) => {
+            this.setState({
+                frequency: event.currentTarget.value,
+            });
+        }
+    }
+
     render () {
 
         if (!this.state.resultReady) {
             return (
-                <div>
+                <div class='input-salary-info'>
                     <form>
 
-                        <input type="radio" name="salary" value="annually"/>Annually
+                        {/* <input type="radio" name="salary" value="annually"/>Annually
                         <input type="radio" name="salary" value="hourly"/>Hourly
-                        
+                         */}
                         <br/>
-                        <label for='pay'>Salary:</label><br/><br/>
+                        <label for='pay'>Your Annual Salary:</label><br/><br/>
                         <input id='pay' onChange={this.update('pay')} type='number' />
 
                         <br/><button onClick={this.calculatePay.bind(this)} class='qbutton'>Calculate</button>
@@ -64,7 +73,12 @@ class Calculator extends React.Component {
                 </div>
             )
         } else {
-            return <Result takeHomePay={this.state.takeHomePay} grossPay={this.state.pay}/>
+            return <Result
+                    frequency={this.state.frequency} 
+                    changeFrequency={this.changeFrequency.bind(this)} 
+                    takeHomePay={this.state.takeHomePay} 
+                    grossPay={this.state.pay}
+                    />
         }
         
     }

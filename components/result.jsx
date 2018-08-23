@@ -8,6 +8,7 @@ import {
     HashRouter
 } from 'react-router-dom';
 import createPieChart from '../js/createPieChart';
+import calculatePayCheck from '../js/calculatePayCheck';
 
 class Result extends React.Component {
 
@@ -22,23 +23,16 @@ class Result extends React.Component {
     componentDidMount () {
         setTimeout(function () {
             this.setState({resultReady: true});
-            createPieChart(this.props.takeHomePay, this.state.frequency);
+            createPieChart(this.props.takeHomePay);
         }.bind(this), 0);
-    }
-
-    changeFrequency () {
-        return (event) => {
-            this.setState({
-                frequency: event.currentTarget.value,
-            });
-        }
     }
 
     render () {
 
-        var takeHomePay = this.props.takeHomePay[0].amount;
-        var taxes = this.props.takeHomePay[1].amount;
-        var fica = this.props.takeHomePay[2].amount;
+        var totalPay = calculatePayCheck(this.props.grossPay, this.props.frequency);
+        var takeHomePay = totalPay[0].amount;
+        var taxes = totalPay[1].amount;
+        var fica = totalPay[2].amount;
 
         if (!this.state.resultReady) {
             return (
@@ -53,11 +47,11 @@ class Result extends React.Component {
         } else {
             return (
                 <div class='calculator'>
-                    <h1>Your gross pay is : {this.props.grossPay}</h1>
-                    <h1>Your take home pay is : {takeHomePay}</h1>
+                    <h1>Your annual gross pay is : {this.props.grossPay}</h1>
+                    <h1>Your take-home {this.props.frequency} pay is : {takeHomePay}</h1>
 
                     <div class='pay-options-container'>
-                       <select class='pay-options' onChange={this.changeFrequency()}>
+                       <select class='pay-options' onChange={this.props.changeFrequency()}>
                             <option value="annually">Annually</option>
                             <option value="daily">Daily</option>
                             <option value="weekly">Weekly</option>

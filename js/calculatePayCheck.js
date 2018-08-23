@@ -32,13 +32,14 @@ const calculatePayCheck = (payAmount, frequency) => {
     for (let i = 0; i<array.length; i++) {
         var type = array[i];
         if (frequency === 'daily') {
-            type.amount = (type.amount / 52) / 40;
+            type.amount = (type.amount / 52) / 5;
         } else if (frequency === 'bi-weekly') {
             type.amount = type.amount / 26
         }
         else if (frequency === 'weekly') {
             type.amount = type.amount / 52
         }
+        type.amount = Math.round(type.amount);
     }
 
     return array;

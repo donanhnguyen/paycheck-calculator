@@ -12,9 +12,10 @@ var legendSpacing = 12;
 
 var color1 = d3.schemeCategory10;
 
-var pieChart = document.getElementById("#pie-chart");
+var pieChart = d3.select("#pie-chart");
+
 if (pieChart) {
-  pieChart.innerHTML = "";
+  pieChart.html("");
 }
 
 var svg = d3.select('#pie-chart') 
@@ -95,7 +96,7 @@ path.on('mouseover', function(d) {
  var percentage = Math.round(1000 * d.data.percentage / total) / 10;
  tooltip.select('.label').html(d.data.type);                     
  tooltip.select('.percent').html(percentage + "%");
- tooltip.select('.count').html('$' + d.data.amount);        
+//  tooltip.select('.count').html('$' + d.data.amount);        
  tooltip.style('display', 'block');                     
 });                                                           
 
