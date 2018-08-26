@@ -24,7 +24,7 @@ class Result extends React.Component {
         setTimeout(function () {
             this.setState({resultReady: true});
             createPieChart(this.props.takeHomePay);
-        }.bind(this), 0);
+        }.bind(this), 1000);
     }
 
     render () {
