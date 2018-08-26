@@ -53,9 +53,9 @@ class Result extends React.Component {
                     <div class='pay-options-container'>
                        <select class='pay-options' onChange={this.props.changeFrequency()}>
                             <option value="annually">Annually</option>
-                            <option value="daily">Daily</option>
-                            <option value="weekly">Weekly</option>
                             <option value="bi-weekly">Bi-Weekly</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="daily">Daily</option>
                         </select> 
                     </div>
 
