@@ -74,9 +74,7 @@ a:hover, a:active { text-decoration: none;}
 .pay-options {
     font-size: 25px;
 }
-.pay-options-container {
-    
-}
+
 .input-salary-info {
     margin: 20px;
     box-shadow: 1px 1px 1px 1px rgba(186, 186, 186, 0.803);
