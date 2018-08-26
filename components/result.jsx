@@ -69,6 +69,7 @@ class Result extends React.Component {
                     </div>
                     
                     <div id='pie-chart'>
+                    
                     </div>
                 </div>
             ) 
