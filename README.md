@@ -1,5 +1,7 @@
 # Paycheck Calculator
 
+![alt text](http://g.recordit.co/s16H1PciwY.gif)
+
 [Live Game](https://thedonwind69.github.io/paycheck-calculator)
 
 - Simple paycheck calculator for annual salary for 2018.
