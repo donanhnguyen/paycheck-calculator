@@ -60,14 +60,9 @@ class Calculator extends React.Component {
             return (
                 <div class='input-salary-info'>
                     <form>
-
-                        {/* <input type="radio" name="salary" value="annually"/>Annually
-                        <input type="radio" name="salary" value="hourly"/>Hourly
-                         */}
                         <br/>
                         <label for='pay'>Your Annual Salary:</label><br/><br/>
                         <input id='pay' onChange={this.update('pay')} type='number' />
-
                         <br/><button onClick={this.calculatePay.bind(this)} class='qbutton'>Calculate</button>
                     </form>
                 </div>
