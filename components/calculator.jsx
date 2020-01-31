@@ -1,12 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {
-    Route,
-    Redirect,
-    Switch,
-    Link,
-    HashRouter
-} from 'react-router-dom';
 import calculatePayCheck from '../js/calculatePayCheck';
 import Result from './result';
 

@@ -1,11 +1,4 @@
 import React from 'react';
-import {
-    Route,
-    Redirect,
-    Switch,
-    Link,
-    HashRouter
-} from 'react-router-dom';
 import Calculator from './calculator';
 
 class HomePage extends React.Component {
